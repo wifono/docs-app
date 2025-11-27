@@ -19,6 +19,14 @@ type AuthMode = "login" | "register";
 export default function HeaderComponent() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+  const [open, setOpen] = useState<{
+    visible: boolean;
+    mode: AuthMode;
+  }>({
+    visible: false,
+    mode: "login",
+  });
+
   return (
     <header className="bg-gray-900">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
@@ -146,6 +154,11 @@ export default function HeaderComponent() {
           </div>
         </DialogPanel>
       </Dialog>
+      <AuthModal
+        open={open.visible}
+        mode={open.mode}
+        onClose={() => setOpen({ visible: false, mode: "login" })}
+      />
     </header>
   )
 }
