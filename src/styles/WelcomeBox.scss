@@ -1,0 +1,26 @@
+@use "./variables.scss" as *;
+
+main {
+    overflow: hidden;
+}
+
+.cat {
+    position: absolute;
+    right: -15em;
+    top: -4em;
+    width: 45em;
+
+    path {
+        fill: $accent;
+    }
+
+    @media (max-width: 480px) {
+        position: relative;
+        width: 14em;
+        top: 4em;
+        left: 0em;
+        padding: 0;
+        margin: 0;
+        
+    }
+}
