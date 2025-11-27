@@ -1,3 +1,9 @@
+'use client'
+
+import WelcomeBox from "../components/WelcomeBox"
+
 export default function Home() {
-  return <div>Home page</div>
+  return <div>
+    <WelcomeBox />
+  </div>
 }
