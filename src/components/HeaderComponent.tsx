@@ -51,16 +51,16 @@ export default function HeaderComponent() {
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-6">
-          <Link to="#" className="text-sm/6 font-semibold text-white">
+          <Link to="/" className="text-sm/6 font-semibold text-white">
             Domov
           </Link>
-          <Link to="#" className="text-sm/6 font-semibold text-white">
+          <Link to="/products" className="text-sm/6 font-semibold text-white">
             Produkty
           </Link>
-          <Link to="#" className="text-sm/6 font-semibold text-white">
+          <Link to="/about" className="text-sm/6 font-semibold text-white">
             O nás
           </Link>
-          <Link to="#" className="text-sm/6 font-semibold text-white">
+          <Link to="/contact" className="text-sm/6 font-semibold text-white">
             Kontakt
           </Link>
           
