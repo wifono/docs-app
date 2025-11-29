@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "../styles/AuthModal.scss";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useAuth } from "../context/auth-context";
 
 interface AuthModalProps {
   open: boolean;
@@ -66,6 +67,7 @@ export default function AuthModal({ open, mode, onClose }: AuthModalProps) {
 function LoginForm({ onClose }: { onClose: () => void }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useAuth();
 
   const [loading, setLoading] = useState(false);
 
@@ -77,9 +79,12 @@ function LoginForm({ onClose }: { onClose: () => void }) {
         email,
         password,
       });
+      const token = response.data.accessToken || response.data.access_token;
+      if (!token) {
+        throw new Error("Token not received from server");
+      }
       toast.success("Prihlásenie úspešné!");
-      console.log(response.data); 
-      localStorage.setItem("access_token", response.data.accessToken);
+      login(token, email);
       onClose();
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {
