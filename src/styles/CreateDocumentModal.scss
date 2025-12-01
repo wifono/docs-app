@@ -1,0 +1,66 @@
+@use "./variables.scss" as *;
+
+.create-document-modal {
+  .modal-panel {
+    background-color: $brand !important;
+  }
+
+  .modal-title {
+    color: white;
+  }
+
+  label {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  input,
+  textarea {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    &:focus {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-color: $accent;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(99, 95, 199, 0.3);
+    }
+  }
+
+  // Tag dropdown
+  .tag-dropdown {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
+
+    .tag-option {
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+
+  // Buttons
+  .btn-cancel {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+  }
+
+  .btn-submit {
+    background-color: $accent;
+    color: white;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
