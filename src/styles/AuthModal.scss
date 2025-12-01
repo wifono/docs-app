@@ -2,8 +2,15 @@
 
 
 .registration-form {
-    width: 30em;
+    width: 100%;
+    max-width: 30em;
     background-color: $brand;
+    margin: 0 auto;
+
+    @media (max-width: 480px) {
+        max-width: 100%;
+        border-radius: 0;
+    }
 }
 
 
