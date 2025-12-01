@@ -128,51 +128,84 @@ export default function HeaderComponent() {
             <div className="-my-6 divide-y divide-white/10">
               <div className="space-y-2 py-6">
                 <Link
-                  to="#"
+                  to="/"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   Domov
                 </Link>
                 <Link
-                  to="#"
+                  to="/products"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   Produkty
                 </Link>
                 <Link
-                  to="#"
+                  to="/about"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   O nás
                 </Link>
                 <Link
-                  to="#"
+                  to="/contact"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   Kontakt
                 </Link>
-
+                
+                {isAuthenticated && (
+                  <Link
+                    to="/documents"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Moje dokumenty
+                  </Link>
+                )}
               </div>
               <div className="py-6">
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false)
-                    setOpen({ visible: true, mode: "login" })
-                  }}
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5 w-full text-left"
-                >
-                  Prihlásiť sa
-                </button>
+                {isAuthenticated ? (
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2 px-3 text-white">
+                      <UserCircleIcon className="h-6 w-6" />
+                      <span className="text-sm font-semibold">{user}</span>
+                    </div>
+                    <button
+                      onClick={() => {
+                        logout();
+                        setMobileMenuOpen(false);
+                      }}
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5 w-full text-left"
+                    >
+                      Odhlásiť sa
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <button
+                      onClick={() => {
+                        setMobileMenuOpen(false)
+                        setOpen({ visible: true, mode: "login" })
+                      }}
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5 w-full text-left"
+                    >
+                      Prihlásiť sa
+                    </button>
 
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false)
-                    setOpen({ visible: true, mode: "register" })
-                  }}
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5 w-full text-left"
-                >
-                  Zaregistrovať sa
-                </button>
+                    <button
+                      onClick={() => {
+                        setMobileMenuOpen(false)
+                        setOpen({ visible: true, mode: "register" })
+                      }}
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5 w-full text-left"
+                    >
+                      Zaregistrovať sa
+                    </button>
+                  </>
+                )}
               </div>
             </div>
           </div>
