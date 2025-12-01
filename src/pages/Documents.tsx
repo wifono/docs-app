@@ -391,14 +391,14 @@ export default function Documents() {
               ) : (
                 documents.map((doc) => (
                   <tr key={doc.id}>
-                    <td className="doc-name">{doc.name}</td>
-                    <td>
+                    <td className="doc-name" data-label="Názov">{doc.name}</td>
+                    <td data-label="Tag">
                       <span className="doc-tag">{doc.tag || "-"}</span>
                     </td>
-                    <td className="doc-description">
+                    <td className="doc-description" data-label="Popis">
                       {doc.description || "-"}
                     </td>
-                    <td className="doc-file">
+                    <td className="doc-file" data-label="Súbor">
                       {doc.fileName ? (
                         <div className="flex items-center gap-2">
                           <span className="truncate max-w-[150px]" title={doc.fileName}>
@@ -416,10 +416,10 @@ export default function Documents() {
                         "-"
                       )}
                     </td>
-                    <td className="doc-date">
+                    <td className="doc-date" data-label="Dátum vytvorenia">
                       {new Date(doc.createdAt).toLocaleDateString("sk-SK")}
                     </td>
-                    <td className="doc-actions">
+                    <td className="doc-actions" data-label="Akcie">
                       <button
                         onClick={() => handleEditDocument(doc)}
                         className="btn-edit"
